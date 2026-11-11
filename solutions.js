@@ -91,3 +91,4 @@ async function run() {
     }
 }
 run();
+console.log(pluckValues(users, "name"));
