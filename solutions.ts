@@ -7,10 +7,6 @@ const result1 = multiplyValue(5);
 const result2 = multiplyValue(5, 3);
 const result3 = multiplyValue(5, 0);
 
-console.log(result1);
-console.log(result2);
-console.log(result3);
-
 // Problem : 2
 const processInput = (input: string | number | boolean): string | number => {
   if (typeof input === "string") {
@@ -24,11 +20,6 @@ const processInput = (input: string | number | boolean): string | number => {
   return input ? "ACtive" : "Inactive";
 };
 
-console.log(processInput("hello"));
-console.log(processInput(5));
-console.log(processInput(true));
-console.log(processInput(false));
-
 // Problem : 3
 const formatCoordinate = (
   coordinate: readonly [number, number, string],
@@ -37,10 +28,7 @@ const formatCoordinate = (
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
 
-console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
-
 // Problem : 4
-
 const concatenateArrays = <T>(...arrays: T[][]): T[] => {
   const result: T[] = [];
 
@@ -49,10 +37,6 @@ const concatenateArrays = <T>(...arrays: T[][]): T[] => {
   }
   return result;
 };
-
-console.log(concatenateArrays(["a", "b"], ["c", "d"]));
-
-console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
 // Problem : 5
 interface Course {
@@ -77,8 +61,6 @@ const courses = [
   { title: "Next.js Pro", students: 85, isPublished: true },
 ];
 
-console.log(getPopularCourses(courses, 80));
-
 // Problem : 6
 const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
   return items.map((item) => item[key]);
@@ -89,10 +71,6 @@ const users = [
   { id: 2, name: "Sadia", role: "Editor" },
   { id: 3, name: "Tariq", role: "Subscriber" },
 ];
-
-console.log(pluckValues(users, "name"));
-
-console.log(pluckValues(users, "id"));
 
 // problem : 7
 class Employee {
@@ -124,6 +102,26 @@ class Manager extends Employee {
 
 const manager = new Manager("Alice", 50000, "Engineering");
 
-console.log(manager.getDetails());
+// problem : 8
+async function validateAgeAsync(age: number): Promise<string> {
+  if (age < 18) {
+    throw new Error("Access Denied: Must be 18 or older");
+  }
 
-console.log(manager.getRoleInfo());
+  return new Promise<string>((resolve) => {
+    setTimeout(() => {
+      resolve("Access Granted");
+    }, 1000);
+  });
+}
+
+async function run() {
+  try {
+    await validateAgeAsync(15);
+  } catch (error) {
+    if (error instanceof Error) {
+    }
+  }
+}
+
+run();
