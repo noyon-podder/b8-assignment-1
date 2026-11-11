@@ -76,10 +76,3 @@ const bad2: ApiResponse = {
   message: "Something went wrong",
 };
 ```
-
-## Summary
-
-- Use `&` to add shared fields to a type.
-- Use `|` when a value can be one of a few different shapes.
-- Together they work well for things like API responses, where some fields are common and some depend on the case.
-- Add a field like `status` to every shape in the union, so narrowing with `if` is easy.
